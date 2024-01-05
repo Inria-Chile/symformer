@@ -8,45 +8,44 @@ ENV HISTFILE=/root/.history/.zsh_history
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# RUN apt update \
-# && apt -y install --no-install-recommends apt-utils 2>&1
+RUN apt update && apt -y install --no-install-recommends apt-utils 2>&1
 
-# RUN apt -y dist-upgrade && \
-#     apt install --no-install-recommends -y \
-#         build-essential \
-#         git \
-#         git-lfs \
-#         gnupg-agent \
-#         groff \
-#         curl \
-#         dialog \
-#         wget \
-#         unzip \
-#         openssh-client \
-#         python3.10 \
-#         python3.10-dev \
-#         python3.10-venv \
-#         python3-pip \ 
-#         libyaml-dev \
-#         apt-transport-https \
-#         software-properties-common \
-#         xz-utils \
-#         zsh \
-#         pkg-config \
-#         libhdf5-dev \
-#         graphviz \
-#     && apt -y autoremove && apt-get clean -y \
-#     && rm -rf /var/lib/apt/lists/*
+RUN apt -y dist-upgrade && \
+    apt install --no-install-recommends -y \
+        build-essential \
+        python3.9 \
+        python3.9-dev \
+        python3.9-venv \
+        python3-pip \ 
+        git \
+        git-lfs \
+        gnupg-agent \
+        groff \
+        curl \
+        dialog \
+        wget \
+        unzip \
+        openssh-client \
+        libyaml-dev \
+        apt-transport-https \
+        software-properties-common \
+        xz-utils \
+        zsh \
+        pkg-config \
+        libhdf5-dev \
+        graphviz \
+    && apt -y autoremove && apt-get clean -y \
+    && rm -rf /var/lib/apt/lists/*
 
 # Prepare git lfs in case we need it
-#RUN git lfs install --skip-smudge
+RUN git lfs install --skip-smudge
 
 # set zsh as the defaul shell
-RUN chsh -s $(which zsh)
+# RUN chsh -s $(which zsh)
 
 # Install Python tools
 #RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.10 1
-#RUN python3.10 -m pip install --no-cache-dir -U pip wheel setuptools poetry
+RUN python3 -m pip install --no-cache-dir -U pip wheel setuptools poetry
 
 # Install poetry in preview mode to be able to set the correct version of setuptools afterwards.
 # RUN curl -sSL https://install.python-poetry.org | python3.10 -

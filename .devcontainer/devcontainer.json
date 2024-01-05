@@ -14,8 +14,8 @@
     // Enable Docker instance to access all GPUS on the host machine
 	// https://docs.docker.com/config/containers/resource_constraints/#gpu
 	"runArgs": [
-        "--gpus", "all",
-	 	"--shm-size", "32G",
+        // "--gpus", "all",
+	 	// "--shm-size", "32G",
         "--env-file", "./.devcontainer/.env"
 	],
 
