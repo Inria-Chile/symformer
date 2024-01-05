@@ -1,7 +1,7 @@
 import typing as t
 
-import aclick
 import click
+
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
@@ -32,7 +32,7 @@ def generate_functions(points, eval_points, runner: Runner, *, num_show_equation
     return point_prediction[..., -1]
 
 
-@aclick.command
+@click.command
 @click.argument("function", nargs=-1)
 def generate_video(
     function: t.List[str],

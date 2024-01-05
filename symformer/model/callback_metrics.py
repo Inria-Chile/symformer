@@ -183,7 +183,7 @@ class IntegralDifferenceMetric(CallbackMetric):
                     OverflowError,
                     RuntimeWarning,
                     FloatingPointError,
-                ):
+                ) as e:
                     raise RuntimeWarning(e)
             raise RuntimeWarning("No range for integration found")
 

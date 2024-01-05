@@ -2,7 +2,7 @@ import datetime
 
 import numpy as np
 import tensorflow as tf
-from aclick import command
+from click import command
 
 from symformer.dataset.tokenizers import GeneralTermTokenizer
 from symformer.dataset.utils.tree import prefix_to_infix

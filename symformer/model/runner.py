@@ -6,6 +6,7 @@ import numpy as np
 import tensorflow as tf
 from sklearn.metrics import r2_score
 from sympy import sympify
+from dacite import from_dict
 
 from symformer.dataset.tokenizers import GeneralTermTokenizer
 from symformer.dataset.utils import generate_all_possible_ranges

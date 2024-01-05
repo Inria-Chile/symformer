@@ -2,18 +2,18 @@ import os
 import shutil
 import tarfile
 
-import aclick
+import click
 
 
 def command(**kwargs):
     def wrap(fn):
-        return aclick.command(
-            map_parameter_name=aclick.FlattenParameterRenamer(1), **kwargs
+        return click.command(
+            map_parameter_name=click.FlattenParameterRenamer(1), **kwargs
         )(
-            aclick.configuration_option(
+            click.configuration_option(
                 "--config",
                 parse_configuration=lambda f: dict(
-                    config=aclick.utils.parse_json_configuration(f)
+                    config=click.utils.parse_json_configuration(f)
                 ),
             )(fn)
         )

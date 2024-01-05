@@ -1,10 +1,10 @@
-import aclick
+import click
 
 from symformer.model.runner import Runner
 from symformer.model.utils.const_improver import OptimizationType
 
 
-@aclick.command("predict")
+@click.command("predict")
 def main(
     function: str,
     /,

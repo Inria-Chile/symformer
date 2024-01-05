@@ -1,6 +1,6 @@
 from math import ceil
 
-import aclick
+import click
 
 import tensorflow as tf
 
@@ -17,12 +17,12 @@ from .training.callbacks import get_callbacks
 from .training.datasets import get_datasets
 
 
-@aclick.command(
-    "train", map_parameter_name=aclick.RegexParameterRenamer([(r"config(?:\.|)", "")])
+@click.command(
+    "train", map_parameter_name=click.RegexParameterRenamer([(r"config(?:\.|)", "")])
 )
-@aclick.configuration_option(
+@click.configuration_option(
     "--config",
-    parse_configuration=lambda f: dict(config=aclick.utils.parse_json_configuration(f)),
+    parse_configuration=lambda f: dict(config=click.utils.parse_json_configuration(f)),
 )
 def train(config: Config):
     """

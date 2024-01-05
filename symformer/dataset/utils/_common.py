@@ -58,7 +58,7 @@ def timeout(seconds=10, error_message=os.strerror(errno.ETIME)):
         def wrapper(*args, **kwargs):
             old_signal = signal.signal(signal.SIGALRM, partial(_handle_timeout, 0))
             old_time_left = signal.alarm(seconds)
-            assert type(old_time_left) is int and old_time_left >= 0
+            assert isinstance(old_time_left, int) and old_time_left >= 0
             if 0 < old_time_left < seconds:  # do not exceed previous timer
                 signal.alarm(old_time_left)
             start_time = time.time()
