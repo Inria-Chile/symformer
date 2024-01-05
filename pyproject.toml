@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "symformer"
+version = "0.1.1"
+description = ""
+authors = ["Inria Chile"]
+
+packages = [{ include = "symformer" }]
+
+[tool.poetry.dependencies]
+python = "^3.7,<3.12"
+# setuptools = "^65.5.1"  # odd requirement
+
+[tool.poetry.dev-dependencies]
+ruff = "*"
+bandit = "*"
+notebook = "*"
+ipywidgets = "*"
+pytest = "*"
+pytest-cov = "*"
+ipykernel = "*"
+
+[tool.ruff]
+line-length = 127
+
+[tool.pytest.ini_options]
+addopts = "--doctest-modules"
+junit_family = "xunit2"
+log_cli = true
+log_cli_level = "INFO"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
